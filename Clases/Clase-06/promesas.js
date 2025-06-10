@@ -13,14 +13,14 @@ const promesa = new Promise((resolve, reject) => {
   }, 2000);
 });
 
-// las Promise tienen tres metodos -> .then  -> .catch() -> .finally()
+// las Promise tienen tres métodos -> .then  -> .catch() -> .finally()
 promesa
   .then((response) => {
-    console.log(response);
+    console.log(response); // ← esto es un callback
   })
   .catch((error) => {
-    console.log(error);
+    console.log(error); // ← esto es un callback
   })
   .finally(() => {
-    console.log("Siempre se ejecuta");
+    console.log("Siempre se ejecuta"); // ← esto es un callback
   });
