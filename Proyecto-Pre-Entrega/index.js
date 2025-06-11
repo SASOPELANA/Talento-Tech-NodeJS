@@ -1,6 +1,6 @@
 import { argv } from "node:process";
 
-const method = argv[2];
+const comando = argv[2]?.toUpperCase(); // Convertimos el método a mayúsculas para estandarizar
 const recurso = argv[3];
 const args = argv.slice(4);
 
@@ -26,7 +26,7 @@ async function obtenerProductos(recurso, args) {
 
 async function metodos() {
   try {
-    if (method === "GET") {
+    if (comando === "GET") {
       await obtenerProductos(recurso, args);
     } else {
       console.log(
