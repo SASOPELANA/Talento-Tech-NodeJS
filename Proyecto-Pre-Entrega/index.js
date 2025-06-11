@@ -6,23 +6,34 @@ const args = argv.slice(4);
 
 const datos = "https://fakestoreapi.com/products";
 
+/// Método GET
 async function obtenerProductos(recurso, args) {
-  if (recurso === "products" && !args[0]) {
-    // Obtenemos todos los productos
-    const res = await fetch("https://fakestoreapi.com/products");
+  // variables para determinar el tipo de solicitud
+  const listaCompleta = recurso === "products" && !args[0];
+  const productoEspecifico = recurso.startsWith("products/");
 
-    const data = await res.json();
-    console.log(data);
-  } else if (recurso.startsWith("products/")) {
-    // Obtenemos un producto específico por ID
+  // Obtenemos todos los productos de la API
+  if (listaCompleta) {
+    fetch("https://fakestoreapi.com/products")
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  }
+
+  // Obtenemos una lista de productos por ID
+  if (productoEspecifico) {
     const productId = recurso.split("/")[1];
     const res = await fetch(`${datos}/${productId}`);
     const data = await res.json();
     console.log(data);
-  } else {
+  }
+
+  // Si no se reconoce el comando o los argumentos, mostramos un mensaje de error
+  if (!listaCompleta && !productoEspecifico) {
     console.log("Comando GET no reconocido o argumentos incorrectos.");
   }
 }
+
+// Método POST
 
 async function metodos() {
   try {
@@ -34,7 +45,7 @@ async function metodos() {
       );
     }
   } catch (error) {
-    console.error("Error ID no existe en la API:", error.message);
+    console.error("Error:", error.message);
   }
 }
 
