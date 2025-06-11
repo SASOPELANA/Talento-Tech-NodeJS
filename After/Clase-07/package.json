@@ -1,0 +1,14 @@
+{
+  "name": "clase-07",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Sergio Alejandro Sopelana",
+  "license": "ISC",
+  "description": "Ejercicio de la clase 05, NodeJS, ascincronico en JavaScript"
+}
