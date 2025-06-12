@@ -38,8 +38,8 @@ async function obtenerProductos(recurso, args) {
 }
 
 // Método POST
-async function agregarProductos(resource, args) {
-  if (resource === "products") {
+async function agregarProductos(recurso, args) {
+  if (recurso === "products") {
     // POST nuevo producto
     const [title, price, category] = args;
     if (!title || !price || !category) {
@@ -73,9 +73,9 @@ async function agregarProductos(resource, args) {
 }
 
 //TODO: Método DELETE
-async function eliminarProducto(resource, args) {
-  if (resource.startsWith("products/")) {
-    const productId = resource.split("/")[1];
+async function eliminarProducto(recurso, args) {
+  if (recurso.startsWith("products/")) {
+    const productId = recurso.split("/")[1];
     try {
       const res = await fetch(`${datos}/${productId}`, { method: "DELETE" });
       const data = await res.json();
