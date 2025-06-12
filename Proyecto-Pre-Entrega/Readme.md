@@ -1,8 +1,14 @@
-# 🛍️ CLI para FakeStoreAPI - Gestión de Productos
+## 🛍️ PROYECTO DE PRE ENTREGA NODEJS Y API [FakeStoreAPI](https://fakestoreapi.com).
+
+## Talento Tech 2025
 
 **¡Proyecto pre entrega NodeJS!** Bienvenid@ a esta CLI interactiva para gestionar productos con la [FakeStoreAPI](https://fakestoreapi.com). Desarrollada en Node.js, te permite administrar una tienda ficticia desde tu terminal.
 
 ## Proyecto de pre entrega de NodeJS
+
+### **Descripción**
+
+- Esta aplicacion de consola simula una tienda en línea utilizando la FakeStoreAPI. Permite realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) sobre productos ficticios.
 
 ## ✨ **Funcionalidades**
 
