@@ -32,6 +32,7 @@
 ```bash
 # Ejemplos:
 `npm run start GET products`
+`npm run start GET products/1`
 `npm run start POST products "Camiseta" 19.99 "Moda"  `
 `npm run start DELETE products/1`
 
