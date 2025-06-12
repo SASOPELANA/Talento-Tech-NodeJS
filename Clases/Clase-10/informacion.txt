@@ -1,0 +1,11 @@
+¿Qué es una API Rest? 
+
+Es una arquitectura o metodología de software que propone la comunicación entre sistemas mediante HTTP y JSON.
+
+Recursos: Trabaja con datos accesibles mediante URLs únicas. 
+
+Métodos: Usa GET, POST, PUT y DELETE para interactuar con esos recursos.
+
+Características Clave de REST
+
+
