@@ -38,7 +38,7 @@ async function postProduct(resource, args) {
       description: "Producto creado desde CLI",
       image: "https://i.pravatar.cc",
     };
-    const res = await fetch(BASE_URL, {
+    const res = await fetch(datos, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
@@ -54,7 +54,7 @@ async function deleteProduct(resource) {
   if (resource.startsWith("products/")) {
     // DELETE product by ID
     const productId = resource.split("/")[1];
-    const res = await fetch(`${BASE_URL}/${productId}`, { method: "DELETE" });
+    const res = await fetch(`${datos}/${productId}`, { method: "DELETE" });
     const data = await res.json();
     console.log(data);
   } else {
