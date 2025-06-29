@@ -11,8 +11,9 @@ app.get("/", (req, res) => {
 	res.json({ message: "Apis Rest en Node.js y Express 😄" });
 });
 
-// Asimos las rutas exportadas.
-app.use(productsRouter);
+// Usamos las rutas exportadas.
+// Poner una ruta por defecto.
+app.use("/api", productsRouter);
 
 // Middleware para manejar errores 404, por defecto
 app.use((req, res, next) => {
