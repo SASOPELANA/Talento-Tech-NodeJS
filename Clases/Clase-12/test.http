@@ -1,1 +1,6 @@
-GET localhost:3000/products/ HTTP/1.1
+POST localhost:3000/products/ HTTP/1.1
+
+{
+  "name": "Intel Core i5 12400F",
+  "price": 100
+}
