@@ -1,19 +1,16 @@
 // Aquí dejamos toda la lógica de los métodos y las peticiones
 
-const products = [
-	{ id: 1, name: "RTX 5070 16 VRAM", price: 700 },
-	{ id: 2, name: "RTX 5050 8 VRAM", price: 280 },
-	{ id: 3, name: "RX 9060 XT 16 VRAM", price: 370 },
-	{ id: 4, name: "RX 7800 8 VRAM", price: 290 },
-	{ id: 5, name: "RX 9060 8 VRAM", price: 320 },
-];
+// Importamos los services
+import * as service from "../services/products.service.js";
 
 export const getAllProducts = (req, res) => {
-	res.json(products);
+	res.json(service.getAllProducts());
 };
 
 export const searchProducts = (req, res) => {
 	const { name } = req.query;
+
+	const products = service.getAllProducts();
 
 	const filteredProducts = products.filter((p) =>
 		p.name.toLowerCase().includes(name.toLowerCase()),
@@ -24,6 +21,8 @@ export const searchProducts = (req, res) => {
 
 export const getProductById = (req, res) => {
 	const productsId = parseInt(req.params.id);
+
+	const products = service.getAllProducts();
 
 	const product = products.find((p) => p.id === productsId);
 
@@ -38,6 +37,8 @@ export const postProduct = (req, res) => {
 	// Obtenemos los parámetros del cuerpo del archivo
 	const { name, price } = req.body;
 
+	const products = service.getAllProducts();
+
 	const newProduct = {
 		id: products.length + 1,
 		name,
@@ -50,6 +51,7 @@ export const postProduct = (req, res) => {
 };
 
 export const putProductId = (req, res) => {
+	const products = service.getAllProducts();
 	const productsId = parseInt(req.params.id, 10);
 	const productsIndex = products.findIndex((p) => p.id === productsId);
 
@@ -64,6 +66,7 @@ export const putProductId = (req, res) => {
 };
 
 export const deleteProductId = (req, res) => {
+	const products = service.getAllProducts();
 	const productId = parseInt(req.params.id);
 	const productsIndex = products.findIndex((p) => p.id === productId);
 
