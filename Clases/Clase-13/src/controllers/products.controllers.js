@@ -1,16 +1,21 @@
+/// Importante;
+// Desde el controlador siempre se responde al cliente, solo desde aquí. 👍
+
 // Aquí dejamos toda la lógica de los métodos y las peticiones
 
-// Importamos los services
-import * as service from "../services/products.service.js";
+// Importamos los models
+import * as model from "../models/products.model.js";
 
+// GET ALL
 export const getAllProducts = (req, res) => {
-	res.json(service.getAllProducts());
+	res.json(model.getAllProducts());
 };
 
+// SEARCH
 export const searchProducts = (req, res) => {
 	const { name } = req.query;
 
-	const products = service.getAllProducts();
+	const products = model.getAllProducts();
 
 	const filteredProducts = products.filter((p) =>
 		p.name.toLowerCase().includes(name.toLowerCase()),
@@ -19,10 +24,11 @@ export const searchProducts = (req, res) => {
 	res.json(filteredProducts);
 };
 
+// GET ID
 export const getProductById = (req, res) => {
 	const productsId = parseInt(req.params.id);
 
-	const products = service.getAllProducts();
+	const products = model.getAllProducts();
 
 	const product = products.find((p) => p.id === productsId);
 
@@ -33,25 +39,25 @@ export const getProductById = (req, res) => {
 	res.json({ Producto_ID: product });
 };
 
+// POST
 export const postProduct = (req, res) => {
 	// Obtenemos los parámetros del cuerpo del archivo
-	const { name, price } = req.body;
+	const { name, price, category } = req.body;
 
-	const products = service.getAllProducts();
+	if (!name || !price || !category) {
+		return res.json({
+			message: "Faltan datos: name, price o category 😛",
+		});
+	}
 
-	const newProduct = {
-		id: products.length + 1,
-		name,
-		price,
-	};
-
-	products.push(newProduct);
+	const newProduct = model.postProduct({ name, price, category });
 
 	res.status(201).json({ New_Product: newProduct });
 };
 
+// PUT
 export const putProductId = (req, res) => {
-	const products = service.getAllProducts();
+	const products = model.getAllProducts();
 	const productsId = parseInt(req.params.id, 10);
 	const productsIndex = products.findIndex((p) => p.id === productsId);
 
@@ -65,16 +71,16 @@ export const putProductId = (req, res) => {
 	res.json(products[productsIndex]);
 };
 
+// DELETE
 export const deleteProductId = (req, res) => {
-	const products = service.getAllProducts();
 	const productId = parseInt(req.params.id);
-	const productsIndex = products.findIndex((p) => p.id === productId);
 
-	if (productsIndex === -1) {
+	const product = model.deleteProductId(productId);
+
+	if (!product) {
 		return res.status(404).json({ Error: "Producto no encontrado por ID 💤 " });
 	}
 
-	products.splice(productsIndex, 1);
-
+	// código 200 para responde y json, 204 para send
 	res.status(200).json({ message: "Producto eliminado con exito 😎" });
 };

@@ -34,5 +34,17 @@
 		"name": "RTX 5050 8 VRAM",
 		"price": 250,
 		"category": ["Tarjetas Graficas", "Gama Baja"]
+	},
+	{
+		"id": 7,
+		"name": "RX 9070 12 VRAM",
+		"price": 380,
+		"category": ["Tarjetas Graficas", "Gama Alta"]
+	},
+	{
+		"id": 8,
+		"name": "Ryzen 5600G",
+		"price": 180,
+		"category": ["Microprocesadores", "Gama Baja "]
 	}
 ]

@@ -1,1 +1,11 @@
-GET localhost:3000/api/products/ HTTP/1.1
+POST http://localhost:3000/api/products/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "category": [
+    "Microprocesadores",
+    "Gama Baja "
+  ],
+  "name": "Ryzen 5600G",
+  "price": 180
+}
