@@ -1,0 +1,16 @@
+[
+	{
+		"id": 1,
+		"name": "Juan Perez",
+		"age": 32,
+		"isStudent": true,
+		"course": ["Física", "Química"]
+	},
+	{
+		"id": 2,
+		"name": "Maria Benegas",
+		"age": 22,
+		"isStudent": false,
+		"course": ["Filosofía", "Arte"]
+	}
+]
