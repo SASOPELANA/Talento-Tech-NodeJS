@@ -1,0 +1,50 @@
+[
+	{
+		"id": 1,
+		"name": "RTX 3060 12 VRAM",
+		"price": 250,
+		"category": ["Tarjetas Graficas", "Gama Media"]
+	},
+	{
+		"id": 2,
+		"name": "RTX 5060 8 VRAM",
+		"price": 300,
+		"category": ["Tarjetas Graficas", "Gama Meida"]
+	},
+	{
+		"id": 3,
+		"name": "RTX 4060 8 VRAM",
+		"price": 300,
+		"category": ["Tarjetas Graficas", "Gama Media"]
+	},
+	{
+		"id": 4,
+		"name": "RX 9060 XT 8 VRAM",
+		"price": 320,
+		"category": ["Tarjetas Graficas", "Gama Media"]
+	},
+	{
+		"id": 5,
+		"name": "RX 9060 XT 16 VRAM",
+		"price": 378,
+		"category": ["Tarjetas Graficas", "Gama Alta"]
+	},
+	{
+		"id": 6,
+		"name": "RTX 5050 8 VRAM",
+		"price": 250,
+		"category": ["Tarjetas Graficas", "Gama Baja"]
+	},
+	{
+		"id": 7,
+		"name": "RX 9070 12 VRAM",
+		"price": 380,
+		"category": ["Tarjetas Graficas", "Gama Alta"]
+	},
+	{
+		"id": 8,
+		"name": "Ryzen 5600G",
+		"price": 180,
+		"category": ["Microprocesadores", "Gama Baja "]
+	}
+]
