@@ -7,8 +7,10 @@
 import * as model from "../models/products.model.js";
 
 // GET ALL
-export const getAllProducts = (req, res) => {
-	res.json(model.getAllProducts());
+export const getAllProducts = async (req, res) => {
+	const products = await model.getAllProducts();
+
+	res.json(products);
 };
 
 // SEARCH
@@ -25,10 +27,10 @@ export const searchProducts = (req, res) => {
 };
 
 // GET ID
-export const getProductById = (req, res) => {
+export const getProductById = async (req, res) => {
 	const productsId = parseInt(req.params.id);
 
-	const products = model.getAllProducts();
+	const products = await model.getAllProducts();
 
 	const product = products.find((p) => p.id === productsId);
 
@@ -40,7 +42,7 @@ export const getProductById = (req, res) => {
 };
 
 // POST
-export const postProduct = (req, res) => {
+export const postProduct = async (req, res) => {
 	// Obtenemos los parámetros del cuerpo del archivo
 	const { name, price, category } = req.body;
 
@@ -50,14 +52,14 @@ export const postProduct = (req, res) => {
 		});
 	}
 
-	const newProduct = model.postProduct({ name, price, category });
+	const newProduct = await model.postProduct({ name, price, category });
 
 	res.status(201).json({ New_Product: newProduct });
 };
 
 // PUT
-export const putProductId = (req, res) => {
-	const products = model.getAllProducts();
+export const putProductId = async (req, res) => {
+	const products = await model.getAllProducts();
 	const productsId = parseInt(req.params.id, 10);
 	const productsIndex = products.findIndex((p) => p.id === productsId);
 
@@ -72,10 +74,10 @@ export const putProductId = (req, res) => {
 };
 
 // DELETE
-export const deleteProductId = (req, res) => {
+export const deleteProductId = async (req, res) => {
 	const productId = parseInt(req.params.id);
 
-	const product = model.deleteProductId(productId);
+	const product = await model.deleteProductId(productId);
 
 	if (!product) {
 		return res.status(404).json({ Error: "Producto no encontrado por ID 💤 " });
